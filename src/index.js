@@ -47,7 +47,7 @@ class Article extends React.Component {
 }
 
 class News extends React.Component {
-  render() {
+  renderNews = () => {
     const { data } = this.props
     let newsTemplate
 
@@ -61,9 +61,16 @@ class News extends React.Component {
       newsTemplate = <p>Нет новостей - комментировать нечего.</p>
     }
 
+    return newsTemplate
+  }
+
+
+  render() {
+    const { data } = this.props
+
     return (
       <div className="news">
-        {newsTemplate}
+        {this.renderNews()}
         {
           data.length ? <strong>Всего новостей: {data.length}</strong> : null
         }
