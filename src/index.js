@@ -49,8 +49,6 @@ class News extends React.Component {
       )
     })
 
-    console.log(newsTemplate)
-
     return (
       <div className="news">
         {newsTemplate}
