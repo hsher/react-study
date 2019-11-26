@@ -36,7 +36,7 @@ const App = () => {
 
 class Article extends React.Component {
   render() {
-    const { author, text } = this.props.item
+    const { author, text } = this.props.data
     return (
       <div className="article">
         <p className="news__author">{author}</p>
@@ -54,7 +54,7 @@ class News extends React.Component {
     if (data.length) {
       newsTemplate = data.map(function(item) {
         return (
-          <Article item={item} key={item.id}/>
+          <Article data={item} key={item.id}/>
         )
       })
     } else {
@@ -63,7 +63,6 @@ class News extends React.Component {
 
     return newsTemplate
   }
-
 
   render() {
     const { data } = this.props
