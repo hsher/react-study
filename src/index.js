@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
+const App = () => {
+  return <p>Всем привет, я компонент App</p>
+}
 
 const News = () => {
   return <p>К сожалению, новостей нет</p>
