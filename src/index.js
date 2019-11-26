@@ -6,11 +6,11 @@ import App from './App';
 class BigApp extends React.Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <h1>Я компонент, BigApp</h1>
         <p className='red'>Компоненты можно вкладывать друг в друга.</p>
         <App />
-      </div>
+      </React.Fragment>
     )
   }
 }
