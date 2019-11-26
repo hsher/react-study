@@ -28,9 +28,22 @@ const myNews = [
 const App = () => {
   return (
     <React.Fragment>
+      <h3>News</h3>
       <News data={myNews} />
     </React.Fragment>
   )
+}
+
+class Article extends React.Component {
+  render() {
+    const { author, text } = this.props.item
+    return (
+      <div>
+        <p className="news__author">{author}</p>
+        <p className="news__text">{text}</p>
+      </div>
+    )
+  }
 }
 
 class News extends React.Component {
@@ -41,10 +54,7 @@ class News extends React.Component {
     if (data.length) {
       newsTemplate = data.map(function(item) {
         return (
-          <div key={item.id}>
-            <p className="news__author">{item.author}</p>
-            <p className="news__text">{item.text}</p>
-          </div>
+          <Article item={item} key={item.id}/>
         )
       })
     } else {
