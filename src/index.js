@@ -29,29 +29,32 @@ const App = () => {
   return (
     <React.Fragment>
       <News data={myNews} />
-      <Comments />
     </React.Fragment>
   )
 }
 
-const Comments = () => {
-  return <div>Нет новостей - комментировать нечего.</div>
-}
-
 class News extends React.Component {
   render() {
-    const newsTemplate = this.props.data.map(function(item) {
-      return (
-        <div key={item.id}>
-          <p className="news__author">{item.author}</p>
-          <p className="news__text">{item.text}</p>
-        </div>
-      )
-    })
+    const { data } = this.props
+    let newsTemplate
+
+    if (data.length) {
+      newsTemplate = data.map(function(item) {
+        return (
+          <div key={item.id}>
+            <p className="news__author">{item.author}</p>
+            <p className="news__text">{item.text}</p>
+          </div>
+        )
+      })
+    } else {
+      newsTemplate = <p>Нет новостей - комментировать нечего.</p>
+    }
 
     return (
       <div className="news">
         {newsTemplate}
+        <strong>Всего новостей: {this.props.data.length}</strong>
       </div>
     )
   }
