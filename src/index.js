@@ -40,7 +40,7 @@ const Comments = () => {
 
 class News extends React.Component {
   render() {
-    const newsTemplate = this.props.data.map(function(item, index) {
+    const newsTemplate = this.props.data.map(function(item) {
       return (
         <div key={item.id}>
           <p className="news__author">{item.author}</p>
