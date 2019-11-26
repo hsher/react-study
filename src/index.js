@@ -28,7 +28,7 @@ const myNews = [
 const App = () => {
   return (
     <React.Fragment>
-      <h3>News</h3>
+      <h3>Новости</h3>
       <News data={myNews} />
     </React.Fragment>
   )
@@ -38,7 +38,7 @@ class Article extends React.Component {
   render() {
     const { author, text } = this.props.item
     return (
-      <div>
+      <div className="article">
         <p className="news__author">{author}</p>
         <p className="news__text">{text}</p>
       </div>
