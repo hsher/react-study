@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import './index.css';
 
 const myNews = [
@@ -39,11 +40,18 @@ class Article extends React.Component {
     const { author, text } = this.props.data
     return (
       <div className="article">
-        <p className="news__author">{author}</p>
+        <p className="news__author">{author}:</p>
         <p className="news__text">{text}</p>
       </div>
     )
   }
+}
+
+Article.propTypes = {
+  data: PropTypes.shape({
+    author: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+  })
 }
 
 class News extends React.Component {
@@ -76,6 +84,10 @@ class News extends React.Component {
       </div>
     )
   }
+}
+
+News.propTypes = {
+  data: PropTypes.array.isRequired
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
