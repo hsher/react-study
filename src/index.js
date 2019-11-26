@@ -3,24 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 const App = () => {
-  return <p>Всем привет, я компонент App</p>
+  return (
+    <React.Fragment>
+      <News />
+      <Comments />
+    </React.Fragment>
+  )
+}
+
+const Comments = () => {
+  return <div>Нет новостей - комментировать нечего.</div>
 }
 
 const News = () => {
   return <p>К сожалению, новостей нет</p>
 }
 
-class BigApp extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <h1>Я компонент, BigApp</h1>
-        <p className='red'>Компоненты можно вкладывать друг в друга.</p>
-        <App />
-        <News />
-      </React.Fragment>
-    )
-  }
-}
-
-ReactDOM.render(<BigApp />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
