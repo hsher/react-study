@@ -54,7 +54,7 @@ class News extends React.Component {
     return (
       <div className="news">
         {newsTemplate}
-        <strong>Всего новостей: {this.props.data.length}</strong>
+        <strong className={data.length > 0 ? '' : 'none'}>Всего новостей: {data.length}</strong>
       </div>
     )
   }
