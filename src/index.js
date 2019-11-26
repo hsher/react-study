@@ -40,14 +40,24 @@ const App = () => {
 }
 
 class Article extends React.Component {
+  state = {
+    visible: false
+  }
+
   render() {
     const { author, text, bigText } = this.props.data
+    const { visible } = this.state
+
     return (
       <div className="article">
         <p className="news__author">{author}:</p>
         <p className="news__text">{text}</p>
-        <a href='#' className='news__readmore'>Подробнее</a>
-        <p className="news__big-text">{bigText}</p>
+        {
+          !visible && <a href='#' className='news__readmore'>Подробнее</a>
+        }
+        {
+          visible && <p className="news__big-text">{bigText}</p>
+        }
       </div>
     )
   }
