@@ -42,16 +42,21 @@ const App = () => {
 
 class TestInput extends React.Component {
   state = {
-    value: 'введите значение'
+    myValue: ''
   }
 
   handleInputChange = (e) => {
-    this.setState({ value: e.currentTarget.value })
+    this.setState({ myValue: e.currentTarget.value })
   }
 
   render() {
     return (
-      <input onChange={this.handleInputChange} className='test-input' value={this.state.value} />
+      <input
+        className='test-input'
+        onChange={this.handleInputChange}
+        value={this.state.myValue}
+        placeholder='введите значение'
+      />
     )
   }
 }
