@@ -77,8 +77,13 @@ Article.propTypes = {
 }
 
 class News extends React.Component {
+  state = {
+    counter: 0
+  }
+
   renderNews = () => {
     const { data } = this.props
+    const { counter } = this.state
     let newsTemplate
 
     if (data.length) {
@@ -94,15 +99,20 @@ class News extends React.Component {
     return newsTemplate
   }
 
+  handleNewsClck = (e) => {
+    this.setState({ counter: ++this.state.counter })
+  }
+
   render() {
-    const { data } = this.props
+    const { counter, data } = this.props
 
     return (
       <div className="news">
         {this.renderNews()}
         {
-          data.length ? <strong>Всего новостей: {data.length}</strong> : null
+          data.length ? <strong onClick={this.handleNewsClck}>Всего новостей: {data.length}</strong> : null
         }
+        <p>Всего кликов: {this.state.counter}</p>
       </div>
     )
   }
