@@ -34,9 +34,18 @@ const App = () => {
   return (
     <React.Fragment>
       <h3>Новости</h3>
+      <TestInput />
       <News data={myNews} />
     </React.Fragment>
   )
+}
+
+class TestInput extends React.Component {
+  render() {
+    return (
+      <input className='test-input' value='введите значение' />
+    )
+  }
 }
 
 class Article extends React.Component {
