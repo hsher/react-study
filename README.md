@@ -1,4 +1,4 @@
-This is tesst project created for:
+This is test project created for:
 https://maxfarseer.gitbooks.io/react-course-ru-v2/content/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
