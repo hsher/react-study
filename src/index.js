@@ -41,16 +41,13 @@ const App = () => {
 }
 
 class TestInput extends React.Component {
-  state = {
-    myValue: ''
-  }
-
-  handleInputChange = (e) => {
-    this.setState({ myValue: e.currentTarget.value })
+  constructor(props) {
+    super(props)
+    this.input = React.createRef()
   }
 
   onBtnClickHandler = (e) => {
-    alert(this.state.myValue);
+    alert(this.input.current.value);
   }
 
   render() {
@@ -58,9 +55,9 @@ class TestInput extends React.Component {
       <React.Fragment>
         <input
           className='test-input'
-          onChange={this.handleInputChange}
-          value={this.state.myValue}
+          defaultValue=''
           placeholder='введите значение'
+          ref={this.input}
         />
         <button onClick={this.onBtnClickHandler}>Показать alert</button>
       </React.Fragment>
