@@ -41,9 +41,17 @@ const App = () => {
 }
 
 class TestInput extends React.Component {
+  state = {
+    value: 'введите значение'
+  }
+
+  handleInputChange = (e) => {
+    this.setState({ value: e.currentTarget.value })
+  }
+
   render() {
     return (
-      <input className='test-input' value='введите значение' />
+      <input onChange={this.handleInputChange} className='test-input' value={this.state.value} />
     )
   }
 }
