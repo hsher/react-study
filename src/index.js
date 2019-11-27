@@ -49,14 +49,21 @@ class TestInput extends React.Component {
     this.setState({ myValue: e.currentTarget.value })
   }
 
+  onBtnClickHandler = (e) => {
+    alert(this.state.myValue);
+  }
+
   render() {
     return (
-      <input
-        className='test-input'
-        onChange={this.handleInputChange}
-        value={this.state.myValue}
-        placeholder='введите значение'
-      />
+      <React.Fragment>
+        <input
+          className='test-input'
+          onChange={this.handleInputChange}
+          value={this.state.myValue}
+          placeholder='введите значение'
+        />
+        <button onClick={this.onBtnClickHandler}>Показать alert</button>
+      </React.Fragment>
     )
   }
 }
