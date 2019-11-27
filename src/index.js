@@ -99,7 +99,7 @@ class News extends React.Component {
     return newsTemplate
   }
 
-  handleNewsClck = (e) => {
+  handleCounter = () => {
     this.setState({ counter: ++this.state.counter })
   }
 
@@ -110,7 +110,7 @@ class News extends React.Component {
       <div className="news">
         {this.renderNews()}
         {
-          data.length ? <strong onClick={this.handleNewsClck}>Всего новостей: {data.length}</strong> : null
+          data.length ? <strong onClick={this.handleCounter} className={'news__count'}>Всего новостей: {data.length}</strong> : null
         }
         <p>Всего кликов: {this.state.counter}</p>
       </div>
