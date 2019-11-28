@@ -41,8 +41,21 @@ const App = () => {
 }
 
 class Add extends React.Component {
+  state = {
+    name: '',
+    text: ''
+  }
+
   onBtnClickHandler = (e) => {
     e.preventDefault()
+  }
+
+  onNameChangeHandler = (e) => {
+    this.setState({ name: e.currentTarget.value })
+  }
+
+  onTextChangeHandler = (e) => {
+    this.setState({ text: e.currentTarget.value })
   }
 
   render() {
@@ -52,10 +65,14 @@ class Add extends React.Component {
           type='text'
           className='add__author'
           placeholder='Ваше имя'
+          value={this.state.value}
+          onChange={this.onNameChangeHandler}
         />
         <textarea
           className='add__text'
           placeholder='Текст новости'
+          value={this.state.value}
+          onChange={this.onTextChangeHandler}
         ></textarea>
         <label className='add__checkrule'>
           <input type='checkbox' /> Я согласен с правилами
