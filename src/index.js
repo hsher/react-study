@@ -65,6 +65,14 @@ class Add extends React.Component {
     this.setState({ agree: e.currentTarget.checked })
   }
 
+  validate = () => {
+    const { name, text, agree } = this.state
+    if (name.trim() && text.trim() && agree) {
+      return true
+    }
+    return false
+  }
+
   render() {
     const { name, text, agree } = this.state
 
@@ -93,7 +101,7 @@ class Add extends React.Component {
         <button
           className='add__btn'
           onClick={this.onBtnClickHandler}
-          disabled={!(agree && !!name.trim() && !!text.trim())}
+          disabled={!this.validate()}
         >
           Показать alert
         </button>
