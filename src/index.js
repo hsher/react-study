@@ -55,15 +55,16 @@ class App extends React.Component {
 
 class Add extends React.Component {
   state = {
-    name: '',
+    author: '',
+    bigText: '',
     text: '',
     agree: false
   }
 
   onBtnClickHandler = (e) => {
     e.preventDefault()
-    const { name, text } = this.state
-    this.props.onAddNews({name, text})
+    const { author, bigText, text } = this.state
+    this.props.onAddNews({author, bigText, text})
   }
 
   handleChange = (e) => {
@@ -76,31 +77,38 @@ class Add extends React.Component {
   }
 
   validate = () => {
-    const { name, text, agree } = this.state
-    if (name.trim() && text.trim() && agree) {
+    const { author, text, agree } = this.state
+    if (author.trim() && text.trim() && agree) {
       return true
     }
     return false
   }
 
   render() {
-    const { name, text, agree } = this.state
+    const { author, bigText, text, agree } = this.state
 
     return (
       <form className='add'>
         <input
-          id='name'
+          id='author'
           type='text'
           className='add__author'
           placeholder='Ваше имя'
-          value={name}
+          value={author}
           onChange={this.handleChange}
         />
         <textarea
           id='text'
           className='add__text'
-          placeholder='Текст новости'
+          placeholder='Короткий текст новости'
           value={text}
+          onChange={this.handleChange}
+        ></textarea>
+        <textarea
+          id='bigText'
+          className='add__text'
+          placeholder='Полный текст новости'
+          value={bigText}
           onChange={this.handleChange}
         ></textarea>
         <label className='add__checkrule'>
