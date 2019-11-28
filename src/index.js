@@ -59,19 +59,21 @@ class Add extends React.Component {
   }
 
   render() {
+    const { name, text } = this.state
+
     return (
       <form className='add'>
         <input
           type='text'
           className='add__author'
           placeholder='Ваше имя'
-          value={this.state.value}
+          value={name}
           onChange={this.onNameChangeHandler}
         />
         <textarea
           className='add__text'
           placeholder='Текст новости'
-          value={this.state.value}
+          value={text}
           onChange={this.onTextChangeHandler}
         ></textarea>
         <label className='add__checkrule'>
