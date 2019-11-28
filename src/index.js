@@ -33,38 +33,40 @@ const myNews = [
 const App = () => {
   return (
     <React.Fragment>
+      <Add />
       <h3>Новости</h3>
-      <TestInput />
       <News data={myNews} />
     </React.Fragment>
   )
 }
 
-class TestInput extends React.Component {
-  constructor(props) {
-    super(props)
-    this.input = React.createRef()
-  }
-
-  componentDidMount() {
-    this.input.current.focus()
-  }
-
+class Add extends React.Component {
   onBtnClickHandler = (e) => {
-    alert(this.input.current.value);
+    e.preventDefault()
   }
 
   render() {
     return (
-      <React.Fragment>
+      <form className='add'>
         <input
-          className='test-input'
-          defaultValue=''
-          placeholder='введите значение'
-          ref={this.input}
+          type='text'
+          className='add__author'
+          placeholder='Ваше имя'
         />
-        <button onClick={this.onBtnClickHandler}>Показать alert</button>
-      </React.Fragment>
+        <textarea
+          className='add__text'
+          placeholder='Текст новости'
+        ></textarea>
+        <label className='add__checkrule'>
+          <input type='checkbox' /> Я согласен с правилами
+        </label>
+        <button
+          className='add__btn'
+          onClick={this.onBtnClickHandler}
+        >
+          Показать alert
+        </button>
+      </form>
     )
   }
 }
