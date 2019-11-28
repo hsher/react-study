@@ -35,10 +35,14 @@ class App extends React.Component {
     news: myNews
   }
 
+  handleAddNews = () => {
+    console.log('я вызвана из Add, но имею доступ к this.state у App!', this.state)
+  }
+
   render() {
     return (
       <React.Fragment>
-      <Add />
+      <Add onAddNews={this.handleAddNews} />
       <h3>Новости</h3>
       <News data={this.state.news} />
     </React.Fragment>
@@ -56,7 +60,7 @@ class Add extends React.Component {
   onBtnClickHandler = (e) => {
     e.preventDefault()
     const { agree, name, text } = this.state
-    alert(name + '\n' + text)
+    this.props.onAddNews()
   }
 
   handleChange = (e) => {
@@ -113,6 +117,10 @@ class Add extends React.Component {
       </form>
     )
   }
+}
+
+Add.propTypes = {
+  onAddNews: PropTypes.func.isRequired
 }
 
 class Article extends React.Component {
