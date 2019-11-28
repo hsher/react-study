@@ -49,7 +49,7 @@ class Add extends React.Component {
 
   onBtnClickHandler = (e) => {
     e.preventDefault()
-    const { name, text } = this.state
+    const { agree, name, text } = this.state
     alert(name + '\n' + text)
   }
 
@@ -93,7 +93,7 @@ class Add extends React.Component {
         <button
           className='add__btn'
           onClick={this.onBtnClickHandler}
-          disabled={!agree}
+          disabled={!(agree && !!name.trim() && !!text.trim())}
         >
           Показать alert
         </button>
