@@ -48,7 +48,8 @@ class Add extends React.Component {
   }
 
   onBtnClickHandler = (e) => {
-    e.preventDefault()
+    const comment = this.state.name + '\n' + this.state.text
+    alert(comment)
   }
 
   handleNameChange = (e) => {
