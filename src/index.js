@@ -43,7 +43,8 @@ const App = () => {
 class Add extends React.Component {
   state = {
     name: '',
-    text: ''
+    text: '',
+    checkbox: false
   }
 
   onBtnClickHandler = (e) => {
@@ -58,8 +59,12 @@ class Add extends React.Component {
     this.setState({ text: e.currentTarget.value })
   }
 
+  onCkeckboxChangeHandler = (e) => {
+    this.setState({ checkbox: e.currentTarget.checked })
+  }
+
   render() {
-    const { name, text } = this.state
+    const { name, text, checkbox } = this.state
 
     return (
       <form className='add'>
@@ -77,11 +82,16 @@ class Add extends React.Component {
           onChange={this.onTextChangeHandler}
         ></textarea>
         <label className='add__checkrule'>
-          <input type='checkbox' /> Я согласен с правилами
+          <input
+            type='checkbox'
+            onChange={this.onCkeckboxChangeHandler}
+          />
+          Я согласен с правилами
         </label>
         <button
           className='add__btn'
           onClick={this.onBtnClickHandler}
+          disabled={!checkbox}
         >
           Показать alert
         </button>
