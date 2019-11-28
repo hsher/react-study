@@ -53,12 +53,9 @@ class Add extends React.Component {
     alert(name + '\n' + text)
   }
 
-  handleNameChange = (e) => {
-    this.setState({ name: e.currentTarget.value })
-  }
-
-  handleTextChange = (e) => {
-    this.setState({ text: e.currentTarget.value })
+  handleChange = (e) => {
+    const { id, value } = e.currentTarget
+    this.setState({ [id]: e.currentTarget.value })
   }
 
   handleCheckboxChange = (e) => {
@@ -79,17 +76,19 @@ class Add extends React.Component {
     return (
       <form className='add'>
         <input
+          id='name'
           type='text'
           className='add__author'
           placeholder='Ваше имя'
           value={name}
-          onChange={this.handleNameChange}
+          onChange={this.handleChange}
         />
         <textarea
+          id='text'
           className='add__text'
           placeholder='Текст новости'
           value={text}
-          onChange={this.handleTextChange}
+          onChange={this.handleChange}
         ></textarea>
         <label className='add__checkrule'>
           <input
