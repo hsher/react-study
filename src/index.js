@@ -35,7 +35,10 @@ class App extends React.Component {
     news: myNews
   }
 
-  handleAddNews = () => {
+  handleAddNews = (data) => {
+    const nextNews = [data, ...this.state.news]
+
+    this.setState({ news: nextNews })
     console.log('я вызвана из Add, но имею доступ к this.state у App!', this.state)
   }
 
@@ -59,8 +62,8 @@ class Add extends React.Component {
 
   onBtnClickHandler = (e) => {
     e.preventDefault()
-    const { agree, name, text } = this.state
-    this.props.onAddNews()
+    const { name, text } = this.state
+    this.props.onAddNews({name, text})
   }
 
   handleChange = (e) => {
