@@ -30,14 +30,20 @@ const myNews = [
   }
 ]
 
-const App = () => {
-  return (
-    <React.Fragment>
+class App extends React.Component {
+  state = {
+    news: myNews
+  }
+
+  render() {
+    return (
+      <React.Fragment>
       <Add />
       <h3>Новости</h3>
-      <News data={myNews} />
+      <News data={this.state.news} />
     </React.Fragment>
-  )
+    )
+  }
 }
 
 class Add extends React.Component {
