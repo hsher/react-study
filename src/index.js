@@ -51,11 +51,11 @@ class Add extends React.Component {
     e.preventDefault()
   }
 
-  onNameChangeHandler = (e) => {
+  handleNameChange = (e) => {
     this.setState({ name: e.currentTarget.value })
   }
 
-  onTextChangeHandler = (e) => {
+  handleTextChange = (e) => {
     this.setState({ text: e.currentTarget.value })
   }
 
@@ -73,13 +73,13 @@ class Add extends React.Component {
           className='add__author'
           placeholder='Ваше имя'
           value={name}
-          onChange={this.onNameChangeHandler}
+          onChange={this.handleNameChange}
         />
         <textarea
           className='add__text'
           placeholder='Текст новости'
           value={text}
-          onChange={this.onTextChangeHandler}
+          onChange={this.handleTextChange}
         ></textarea>
         <label className='add__checkrule'>
           <input
