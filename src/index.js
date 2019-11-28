@@ -59,13 +59,13 @@ class Add extends React.Component {
     bigText: '',
     text: '',
     agree: false,
-    id: 5
+    id: ''
   }
 
   onBtnClickHandler = (e) => {
     e.preventDefault()
     const { author, bigText, text, id } = this.state
-    this.props.onAddNews({author, bigText, text, id})
+    this.props.onAddNews({author, bigText, text, id: +new Date()})
   }
 
   handleChange = (e) => {
