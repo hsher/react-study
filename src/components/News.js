@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Article } from '../components/Article'
+import { Article } from './Article'
 
 class News extends React.Component {
   renderNews = () => {
