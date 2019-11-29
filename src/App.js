@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types'
 import { News } from './components/News'
 import { Add } from './components/Add'
 import './App.css';
